@@ -59,7 +59,7 @@ void bfsGPU(int start, Graph G, int *distance)
 
   // Allocation on device
   const int size = G.numVertices * sizeof(int);
-  const int adjacencySize = G.adjacencyListSize * sizeof(int); // Assuming G.adjacencyListSize is available
+  const int adjacencySize = G.adjacencyList.size() * sizeof(int); // Assuming G.adjacencyListSize is available
   cudaMalloc((void **)&d_adjacencyList, adjacencySize);
   cudaMalloc((void **)&d_edgesOffset, size);
   cudaMalloc((void **)&d_edgesSize, size);
@@ -129,6 +129,7 @@ int main()
   // Allocate memory for BFS distance and visited arrays
   int *distance = (int *)malloc(numVertices * sizeof(int));
   int *visited = (int *)malloc(numVertices * sizeof(int));
+  clock_t startSerial, endSerial, startParallel, endParallel;
   startParallel = clock();
   bfsGPU(0, myGraph, distance);
   endParallel = clock();
