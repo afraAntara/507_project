@@ -30,20 +30,26 @@ void ompBFS(int start, Graph *G, int *distance)
 #pragma omp parallel
     {
       int threadNum = omp_get_thread_num();
+      int chunkSize = currentFrontierSize / numThreads; // basic chunk size
+      int start = threadNum * chunkSize;
+      int end = (threadNum == numThreads - 1) ? currentFrontierSize : start + chunkSize; // last thread takes any remainder
+
       int *localNextFrontier = localNextFrontiers[threadNum];
       int localNextFrontierSize = 0;
 
-#pragma omp for nowait
-      for (int i = 0; i < currentFrontierSize; i++)
+      for (int i = start; i < end; i++)
       {
         int current = currentFrontier[i];
         for (int j = G->edgesOffset[current]; j < G->edgesOffset[current] + G->edgesSize[current]; ++j)
         {
           int v = G->adjacencyList[j];
-          if (distance[v] == INT_MAX)
           {
-            distance[v] = distance[current] + 1;
-            localNextFrontier[localNextFrontierSize++] = v;
+            if (distance[v] == INT_MAX)
+            {
+              distance[v] = distance[current] + 1;
+#pragma omp critical
+              localNextFrontier[localNextFrontierSize++] = v;
+            }
           }
         }
       }

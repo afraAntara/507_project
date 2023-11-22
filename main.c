@@ -54,7 +54,7 @@ void ompBFS(int start, Graph *G, int *distance); // Make sure this is declared
 
 int main()
 {
-  int numVertices = 1000; // Example number of vertices
+  int numVertices = 30000; // Example number of vertices
   Graph *myGraph = initGraph(numVertices, Dense);
 
   // printf("Graph's Adjacency List:\n");
@@ -73,6 +73,11 @@ int main()
   endSerial = clock();
   double timeTakenSerial = (double)(endSerial - startSerial) / CLOCKS_PER_SEC;
   printf("Standard BFS took %f seconds.\n", timeTakenSerial);
+  // printf("Distances from vertex 0:\n");
+  // for (int i = 0; i < numVertices; i++)
+  // {
+  //   printf("Vertex %d: %d\n", i, distance[i]);
+  // }
 
   // Reset distance and visited for ompBFS
   for (int i = 0; i < numVertices; i++)
