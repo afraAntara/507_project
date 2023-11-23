@@ -57,6 +57,7 @@ int main()
   int numVertices = 30000; // Example number of vertices
   Graph *myGraph = initGraph(numVertices, Dense);
 
+  printf("Graph with %d vertices and %d edges\n", myGraph->numVertices, myGraph->numEdges);
   // printf("Graph's Adjacency List:\n");
   // printGraph(myGraph);
 

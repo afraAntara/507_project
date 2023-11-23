@@ -29,8 +29,9 @@ void ompBFS(int start, Graph *G, int *distance)
   {
 #pragma omp parallel
     {
+      // Each thread processes a chunk of the current frontier
       int threadNum = omp_get_thread_num();
-      int chunkSize = currentFrontierSize / numThreads; // basic chunk size
+      int chunkSize = currentFrontierSize / numThreads;
       int start = threadNum * chunkSize;
       int end = (threadNum == numThreads - 1) ? currentFrontierSize : start + chunkSize; // last thread takes any remainder
 
@@ -47,7 +48,7 @@ void ompBFS(int start, Graph *G, int *distance)
             if (distance[v] == INT_MAX)
             {
               distance[v] = distance[current] + 1;
-#pragma omp critical
+              // #pragma omp critical
               localNextFrontier[localNextFrontierSize++] = v;
             }
           }
