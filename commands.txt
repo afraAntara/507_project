@@ -1,0 +1,3 @@
+/usr/local/opt/llvm/bin/clang -o program main.c ompBFS.c graph.c -fopenmp
+./program
+

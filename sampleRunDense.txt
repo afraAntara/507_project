@@ -1,0 +1,48 @@
+Graph with 40000 vertices and 800000024 edges
+Standard BFS took 3.360784 seconds.
+OpenMP BFS took 3.064540 seconds.
+
+Graph with 30000 vertices and 449999967 edges
+Standard BFS took 1.178006 seconds.
+OpenMP BFS took 1.688498 seconds.
+
+
+Graph with 20000 vertices and 200000009 edges
+Standard BFS took 0.514770 seconds.
+OpenMP BFS took 0.701585 seconds.
+CUDA BFS took 0.676952 seconds.
+
+Graph with 10000 vertices and 50000031 edges
+Standard BFS took 0.129366 seconds.
+OpenMP BFS took 0.196068 seconds.
+Cuda BFS took 0.305257 seconds.
+
+Graph with 7000 vertices and 24499975 edges
+Standard BFS took 0.064149 seconds.
+OpenMP BFS took 0.094116 seconds.
+Cuda BFS took 0.252791 seconds.
+
+Graph with 5000 vertices and 12499991 edges
+Standard BFS took 0.032907 seconds.
+OpenMP BFS took 0.060190 seconds.
+Cuda BFS took 0.216338 seconds.
+
+Graph with 2000 vertices and 1999967 edges
+Standard BFS took 0.005261 seconds.
+OpenMP BFS took 0.030010 seconds.
+Cuda BFS took 0.189960 seconds.
+
+Graph with 1000 vertices and 500050 edges
+Standard BFS took 0.001523 seconds.
+OpenMP BFS took 0.008294 seconds.
+Cuda BFS took 0.185832 seconds.
+
+Graph with 500 vertices and 125001 edges
+Standard BFS took 0.000339 seconds.
+OpenMP BFS took 0.004777 seconds.
+Cuda BFS took 0.185290 seconds.
+
+Graph with 100 vertices and 5009 edges
+Standard BFS took 0.000021 seconds.
+OpenMP BFS took 0.002494 seconds.
+Cuda BFS took 0.191131 seconds.

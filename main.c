@@ -54,9 +54,8 @@ void ompBFS(int start, Graph *G, int *distance); // Make sure this is declared
 
 int main()
 {
-  int numVertices = 30000; // Example number of vertices
-  Graph *myGraph = initGraph(numVertices, Dense);
-
+  int numVertices = 20000; // Example number of vertices
+  Graph *myGraph = initGraph(numVertices, Sparse);
   printf("Graph with %d vertices and %d edges\n", myGraph->numVertices, myGraph->numEdges);
   // printf("Graph's Adjacency List:\n");
   // printGraph(myGraph);
@@ -64,7 +63,6 @@ int main()
   // Allocate memory for BFS distance and visited arrays
   int *distance = (int *)malloc(numVertices * sizeof(int));
   int *visited = (int *)malloc(numVertices * sizeof(int));
-
   // Timing variables
   clock_t startSerial, endSerial, startParallel, endParallel;
 

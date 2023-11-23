@@ -197,8 +197,8 @@ void bfsGPU(int start, Graph *G, int *distance)
 }
 int main()
 {
-  int numVertices = 10000; // Example number of vertices
-  Graph *myGraph = initGraph(numVertices, Dense);
+  int numVertices = 500; // Example number of vertices
+  Graph *myGraph = initGraph(numVertices, Sparse);
 
   // printf("Graph's Adjacency List:\n");
   // printGraph(myGraph);
@@ -211,5 +211,5 @@ int main()
   bfsGPU(0, myGraph, distance);
   endParallel = clock();
   double timeTakenParallel = (double)(endParallel - startParallel) / CLOCKS_PER_SEC;
-  printf("OpenMP BFS took %f seconds.\n", timeTakenParallel);
+  printf("Cuda BFS took %f seconds.\n", timeTakenParallel);
 }
